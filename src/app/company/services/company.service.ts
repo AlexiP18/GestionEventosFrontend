@@ -19,12 +19,6 @@ export class CompanyService {
     })
   }
 
-  updateAd(adId:any, adDTO:any): Observable<any>{
-    return this.http.put(BASIC_URL + `api/company/ad/${adId}`, adDTO, {
-      headers : this.createAuthorizationHeader()
-    })
-  }
-
   getAllAdsByUserId(): Observable<any>{
     const userId = UserStoargeService.getUserId();
     return this.http.get(BASIC_URL + `api/company/ads/${userId}`, {
@@ -38,6 +32,31 @@ export class CompanyService {
     })
   }
 
+  updateAd(adId:any, adDTO:any): Observable<any>{
+    return this.http.put(BASIC_URL + `api/company/ad/${adId}`, adDTO, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  deletedAd(adId:any): Observable<any>{
+    return this.http.delete(BASIC_URL + `api/company/ad/${adId}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  getAllAdBookings(): Observable<any>{
+    const companyId = UserStoargeService.getUserId();
+    return this.http.get(BASIC_URL + `api/company/bookings/${companyId}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  changeBookingStatus(bookingId: number, status: string): Observable<any>{
+
+    return this.http.get(BASIC_URL + `api/company/booking/${bookingId}/${status}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
 
   createAuthorizationHeader(): HttpHeaders{
     let authHeaders: HttpHeaders = new HttpHeaders();

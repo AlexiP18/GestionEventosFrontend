@@ -28,5 +28,17 @@ export class AllAdsComponent {
     return 'data:image/jpeg;base64,' + img;
   }
 
+  deletedAd(adId:any){
+    this.companyService.deletedAd(adId).subscribe(res=>{
+      this.notification
+      .success(
+        'SUCCESS',
+        `Ad Deleted Successfully`,
+        { nzDuration: 5000 }
+      );
+      this.getAllAdsByUserId();
+    })
+  }
+
 }
 
