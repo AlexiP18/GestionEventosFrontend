@@ -1,1 +1,58 @@
-<p>signup-client works!</p>
+<div class="bg">
+
+  <div class="parent">
+    <div class="child">
+      <div nz-col>
+        <h1 style="margin-left: 55px">Registro</h1>
+      </div>
+
+      <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Correo incorrecto">
+            <input nz-input placeholder="E-mail" formControlName="email" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Contraseña incorrecta">
+            <input nz-input type="password" placeholder="Contraseña" formControlName="password" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Contraseña incorrecta">
+            <input nz-input type="password" placeholder="Confirmar Contraseña" formControlName="checkPassword"
+              id="email" />
+          </nz-form-control>
+        </nz-form-item>
+
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Valor no valido">
+            <input nz-input placeholder="Nombre" formControlName="name" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Valor no valido">
+            <input nz-input placeholder="Apellido" formControlName="lastname" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control nzHasFeedback nzErrorTip="Valor no valido">
+            <input nz-input placeholder="Celular" formControlName="phone" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">
+          Registrarse
+        </button>
+        o <a routerLink="/login"> Ingresar Ahora! </a>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
